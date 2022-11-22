@@ -1,21 +1,29 @@
+use crate::recipe::Recipes;
+
 
 use serde::{Serialize, Deserialize};
 
 
 #[derive(Serialize, Deserialize, Debug)]
-enum ListMode {
-    ALL,
+pub enum ListMode {
+    All,
     One(String), 
 }
 
 
 #[derive(Serialize, Deserialize, Debug)]
-struct ListRequest{
-    mode: ListMode,
+pub struct ListRequest{
+    pub mode: ListMode,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-struct ListResponse {
-    mode: ListMode,
-    data: Recipes,
+pub struct ListResponse {
+    pub mode: ListMode,
+    pub data: Recipes,
+    pub receiver: String,
+}
+
+pub enum EventType {
+    Response(ListResponse),
+    Input(String)
 }

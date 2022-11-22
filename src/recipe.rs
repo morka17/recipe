@@ -7,10 +7,10 @@ pub type Recipes = Vec<Recipe>;
 
 
 #[derive(Serialize, Deserialize, Debug)]
-struct Recipe {
-    id: usize,
-    name: String,
-    ingredients: String, 
-    instructions: String, 
-    public: bool,
+pub struct Recipe {
+    pub id: usize,
+    pub name: String,
+    pub ingredients: String, 
+    pub instructions: String, 
+    pub public: bool,
 }
